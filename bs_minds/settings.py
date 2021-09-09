@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'chat.apps.ChatConfig',
-    'survey.apps.SurveyConfig',
+    'phonenumber_field',
+    'blog.apps.BlogConfig',
 
 
 

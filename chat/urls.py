@@ -8,4 +8,5 @@ urlpatterns = [
     path('send', views.send, name='send'),
     path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
 
+
 ]

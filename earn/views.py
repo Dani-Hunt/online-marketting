@@ -1,6 +1,7 @@
 from django.http import request
-from django.shortcuts import render
-from users.forms import Withdraw
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from users.forms import Withdraw, Quiz , Quiz1
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -16,3 +17,55 @@ def withdraw(request):
     }
     return render(request, 'earn/withdraw.html', context)    
 
+def quiz(request):
+  if request.method == 'POST' :
+    s_form = Quiz(request.POST, instance=request.user)
+ 
+    if s_form.is_valid():
+            s_form.save()
+            messages.success(request, f'Succcess')
+            return redirect('quiz1')
+
+  else:
+    s_form = Quiz(instance=request.user)
+
+    context = {
+        's_form' : s_form,
+    }
+    return render(request, 'earn/quiz.html',context)
+
+def quiz1(request):
+  if request.method == 'POST' :
+    s1_form = Quiz1(request.POST, instance=request.user)
+ 
+    if s1_form.is_valid():
+            s1_form.save()
+            messages.success(request, f'Succcess')
+            return redirect('credit')
+
+  else:
+    s1_form = Quiz1(instance=request.user)
+
+    context = {
+        's1_form' : s1_form,
+    }
+    return render(request, 'earn/quiz1.html',context)
+
+@login_required
+def credit(request):
+    return render(request, 'earn/credit.html')
+
+    
+
+@login_required
+def spin(request):
+    return render(request,'earn/spinning.html')    
+
+
+def patt(request):
+    return render(request, 'earn/patt.html')
+
+
+
+ 
+        

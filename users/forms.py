@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
-from earn.models import Withdraw
+from earn.models import Withdraw, Quiz, Quiz1
 
 
 class UserRegisterForm(UserCreationForm):
@@ -31,3 +31,21 @@ class Withdraw(forms.ModelForm):
     class Meta:
         model = Withdraw
         fields = ['phone', 'amount']     
+
+class Quiz(forms.ModelForm):
+    class Meta:
+        model = Quiz
+        fields = ['firstname','lastname','age','gender','phone','id_number']        
+
+class Quiz1(forms.ModelForm):
+    class Meta:
+        model = Quiz1
+        fields = ['location','name','like','rate','dislike','rules']          
+
+
+            # 'Where do you live',
+            # 'What is the name of this plattform',
+            # 'Do you like this plattform',
+            # 'On a scale of 1-10 rate this plattform',
+            # 'What do you dislike about this plattform',
+            # 'Do you agree to abide by the rules of this plattform'
