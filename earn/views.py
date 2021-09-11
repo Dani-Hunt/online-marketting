@@ -26,12 +26,12 @@ def quiz(request):
             messages.success(request, f'Succcess')
             return redirect('quiz1')
 
-  else:
-    s_form = Quiz(instance=request.user)
+    else:
+        s_form = Quiz(instance=request.user)
 
-    context = {
-        's_form' : s_form,
-    }
+        context = {
+            's_form' : s_form,
+        }
     return render(request, 'earn/quiz.html',context)
 
 def quiz1(request):
@@ -61,7 +61,7 @@ def credit(request):
 def spin(request):
     return render(request,'earn/spinning.html')    
 
-
+@login_required
 def patt(request):
     return render(request, 'earn/patt.html')
 

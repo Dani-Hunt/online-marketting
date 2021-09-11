@@ -26,6 +26,7 @@ urlpatterns = [
     path('',include('users.urls')),
     path('',include('chat.urls')),
     path('',include('blog.urls')),
+    path('teams/',include('teams.urls')),
 
 
 

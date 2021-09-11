@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'chat.apps.ChatConfig',
     'phonenumber_field',
     'blog.apps.BlogConfig',
+    'teams.apps.TeamsConfig',
 
 
 
