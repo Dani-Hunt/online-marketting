@@ -24,12 +24,16 @@
     </div>
   </div>
 </nav>
+<br>
+<br>
+<br>
 
     {% for post in posts %}
 
 
     <div class="row">
       <div class="col-lg-3 col-6">
+        <div>
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
@@ -42,6 +46,7 @@
           <a href="{% url 'user-posts' post.author.username %}" class="small-box-footer">{{ post.author }}<i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
+    </div>
 
     </div>
     {% endfor %}
