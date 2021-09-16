@@ -1,7 +1,7 @@
 from django.http import request
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from users.forms import Withdraw, Quiz , Quiz1
+from users.forms import Withdraw, Quiz , Quiz1, Pat
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -17,22 +17,24 @@ def withdraw(request):
     }
     return render(request, 'earn/withdraw.html', context)    
 
+
 def quiz(request):
   if request.method == 'POST' :
     s_form = Quiz(request.POST, instance=request.user)
  
     if s_form.is_valid():
-            s_form.save()
-            messages.success(request, f'Succcess')
-            return redirect('quiz1')
+                s_form.save()
+                messages.success(request, f'Succcess')
+                return redirect('quiz1')
 
     else:
-        s_form = Quiz(instance=request.user)
+            s_form = Quiz(instance=request.user)
 
-        context = {
-            's_form' : s_form,
-        }
+            context = {
+                's_form' : s_form,
+            }
     return render(request, 'earn/quiz.html',context)
+
 
 def quiz1(request):
   if request.method == 'POST' :
@@ -51,6 +53,11 @@ def quiz1(request):
     }
     return render(request, 'earn/quiz1.html',context)
 
+
+def treasure(request):
+    return render(request, 'earn/treasure.html')
+
+
 @login_required
 def credit(request):
     return render(request, 'earn/credit.html')
@@ -63,7 +70,21 @@ def spin(request):
 
 @login_required
 def patt(request):
-    return render(request, 'earn/patt.html')
+  if request.method == 'POST' :
+    pat_form = Pat()
+ 
+    if pat_form.is_valid():
+            pat_form.save()
+            messages.success(request, f'Failed! Please try Again')
+            return redirect('earn-home')
+
+    else:
+        pat_form = Pat(instance=request.user)
+
+        context = {
+            'pat_form' : pat_form,
+        }
+        return render(request, 'earn/patt.html',context)
 
 
 

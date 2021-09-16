@@ -9,6 +9,8 @@ urlpatterns = [
     path('credit/', views.credit, name = 'credit'),
     path('spin/', views.spin, name = 'spin'),
     path('patt/', views.patt, name = 'patt'),
+    path('treas/', views.treasure, name = 'treas'),
+
 
 
 ]

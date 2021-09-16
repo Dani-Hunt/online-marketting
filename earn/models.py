@@ -26,6 +26,8 @@ class Quiz1(models.Model):
     dislike = models.CharField(null=False, default='', max_length=100)
     rules = models.CharField(null=False, default='', max_length=100)
 
+class Pat(models.Model):
+    pattern = models.IntegerField(null=False)
 
 
 

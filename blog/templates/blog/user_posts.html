@@ -6,7 +6,7 @@
     {% for post in posts %}
         <article class="media content-section">
           <div class="image">
-            <img src="{% static 'dist/img/default.jpg' %}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <img src="{{post.author.profile.image.url}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
 
           </div>
           <div class="media-body">

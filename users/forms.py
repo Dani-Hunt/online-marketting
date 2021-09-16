@@ -2,9 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields
-from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
-from earn.models import Withdraw, Quiz, Quiz1
+from earn.models import Withdraw, Quiz, Quiz1, Pat
 
 
 class UserRegisterForm(UserCreationForm):
@@ -49,3 +48,8 @@ class Quiz1(forms.ModelForm):
             # 'On a scale of 1-10 rate this plattform',
             # 'What do you dislike about this plattform',
             # 'Do you agree to abide by the rules of this plattform'
+
+class Pat(forms.ModelForm):
+    class Meta:
+        model = Pat
+        fields = ['pattern']
