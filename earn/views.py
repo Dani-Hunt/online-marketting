@@ -32,7 +32,7 @@ def quiz(request):
         context = {
                     's_form' : s_form,
                 }
-        return render(request, 'earn/quiz.html',context)
+  return render(request, 'earn/quiz.html',context)
 
 
 def quiz1(request):
