@@ -27,9 +27,8 @@ def quiz(request):
         messages.success(request, f'Succcess')
         return redirect('quiz1')
 
-    else:
+  else:
         s_form = Quiz(instance=request.user)
-
         context = {
                     's_form' : s_form,
                 }
