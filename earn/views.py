@@ -23,17 +23,17 @@ def quiz(request):
     s_form = Quiz(request.POST, instance=request.user)
  
     if s_form.is_valid():
-                s_form.save()
-                messages.success(request, f'Succcess')
-                return redirect('quiz1')
+        s_form.save()
+        messages.success(request, f'Succcess')
+        return redirect('quiz1')
 
     else:
-            s_form = Quiz(instance=request.user)
+        s_form = Quiz(instance=request.user)
 
-            context = {
-                's_form' : s_form,
-            }
-    return render(request, 'earn/quiz.html',context)
+        context = {
+                    's_form' : s_form,
+                }
+        return render(request, 'earn/quiz.html',context)
 
 
 def quiz1(request):
