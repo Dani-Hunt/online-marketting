@@ -73,21 +73,17 @@ def spin(request):
 
 @login_required
 def patt(request):
+  pat_form = Pat()
   if request.method == 'POST' :
-    pat_form = Pat()
- 
-    if pat_form.is_valid():
-            pat_form.save()
-            messages.success(request, f'Failed! Please try Again')
-            return redirect('earn-home')
-
-    else:
-        pat_form = Pat(instance=request.user)
-
-        context = {
-            'pat_form' : pat_form,
+   
+        messages.warning(request, f'Failed, Please try your luck again')
+        return redirect('earn-home')
+    
+  context = {
+  'pat_form' : pat_form,
         }
-        return render(request, 'earn/patt.html',context)
+ 
+  return render(request, 'earn/patt.html',context)
 
 
 

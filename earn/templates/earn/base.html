@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{user.profile.image.url}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{user.profile.image.url}}" class="img-circle elevation-2">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{user.username}}</a>
@@ -323,6 +323,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     {% endfor %}
     {% endif %}
+
+    <script>
+      setTimeout(function () {
+          $('.alert').fadeOut();
+      }, 2000);
+    </script>
 
 </body>
 
