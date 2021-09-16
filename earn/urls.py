@@ -10,6 +10,8 @@ urlpatterns = [
     path('spin/', views.spin, name = 'spin'),
     path('patt/', views.patt, name = 'patt'),
     path('treas/', views.treasure, name = 'treas'),
+    path('adv/', views.advert, name = 'adv'),
+
 
 
 

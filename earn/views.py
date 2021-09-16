@@ -17,7 +17,7 @@ def withdraw(request):
     }
     return render(request, 'earn/withdraw.html', context)    
 
-
+@login_required
 def quiz(request):
   if request.method == 'POST' :
     s_form = Quiz(request.POST, instance=request.user)
@@ -34,7 +34,7 @@ def quiz(request):
                 }
   return render(request, 'earn/quiz.html',context)
 
-
+@login_required
 def quiz1(request):
   if request.method == 'POST' :
     s1_form = Quiz1(request.POST, instance=request.user)
@@ -52,7 +52,7 @@ def quiz1(request):
     }
     return render(request, 'earn/quiz1.html',context)
 
-
+@login_required
 def treasure(request):
     return render(request, 'earn/treasure.html')
 
@@ -61,6 +61,10 @@ def treasure(request):
 def credit(request):
     return render(request, 'earn/credit.html')
 
+
+@login_required
+def advert(request):
+    return render(request, 'earn/advert.html')
     
 
 @login_required
